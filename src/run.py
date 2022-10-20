@@ -2,17 +2,20 @@
 
 import search
 
-def print_result(result_node: search.Node):
-    print("new search")
+def print_result(result_node: search.Node, type = "unknown"):
+    print("----------------------------------------------------")
+    print("Search Type:", type)
     print(result_node.path())
-    print("cost", result_node.path_cost)
+    print("Cost:", result_node.path_cost)
+    print("----------------------------------------------------")
 
 ab = search.GPSProblem('A', 'B'
                        , search.romania)
 
-print_result(search.breadth_first_graph_search(ab))
-print_result(search.depth_first_graph_search(ab))
-print_result(search.best_first_graph_search(ab))
+print_result(search.breadth_first_graph_search(ab), "Breadth first")
+print_result(search.depth_first_graph_search(ab), "Depth first")
+print_result(search.best_first_graph_search(ab), "Best first")
+print_result(search.heuristic_graph_search(ab), "Heuristic search")
 
 
 # Result:

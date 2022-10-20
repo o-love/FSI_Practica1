@@ -4,7 +4,6 @@ The way to use this code is to subclass Problem to create a class of problems,
 then create problem instances and solve them with calls to the various search
 functions."""
 
-
 from utils import *
 import random
 import sys
@@ -118,11 +117,25 @@ def depth_first_graph_search(problem):
     """Search the deepest nodes in the search tree first. [p 74]"""
     return graph_search(problem, Stack())
 
+
 def best_first_graph_search(problem):
-    return graph_search(problem, SortedList())
+    def order_criteria(item):
+        return item.path_cost
+
+    return graph_search(problem, SortedList(order_criteria))
+
+
+def heuristic_graph_search(problem):
+    def order_criteria(item):
+        nonlocal problem
+        return item.path_cost + problem.h(item)
+
+    return graph_search(problem, SortedList(order_criteria))
+
 
 def visited_and_expanded_node_count(solution_node: Node, fringe: list[Node]) -> (int, int):
     return len(solution_node.path()), len(fringe)
+
 
 # _____________________________________________________________________________
 # The remainder of this file implements examples for the search algorithms.

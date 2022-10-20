@@ -1,3 +1,4 @@
+import math
 
 #______________________________________________________________________________
 # Simple Data Structures: infinity, Dict, Struct
@@ -547,16 +548,19 @@ class FIFOQueue(Queue):
 class SortedList:
     list = []
 
+    def __init__(self, sort_criteria):
+        self.sort_criteria = sort_criteria
+
     def __len__(self):
         return len(self.list)
 
     def extend(self, items: list):
         self.list.extend(items)
-        self.list.sort(key=lambda item: item.path_cost, reverse=True)
+        self.list.sort(key=self.sort_criteria, reverse=True)
 
     def append(self, item):
         self.list.append(item)
-        self.list.sort(key=lambda inner_item: inner_item.path_cost, reverse=True)
+        self.list.sort(key=self.sort_criteria, reverse=True)
 
     def pop(self):
         return self.list.pop()
