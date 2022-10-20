@@ -118,7 +118,11 @@ def depth_first_graph_search(problem):
     """Search the deepest nodes in the search tree first. [p 74]"""
     return graph_search(problem, Stack())
 
+def best_first_graph_search(problem):
+    return graph_search(problem, SortedList())
 
+def visited_and_expanded_node_count(solution_node: Node, fringe: list[Node]) -> (int, int):
+    return len(solution_node.path()), len(fringe)
 
 # _____________________________________________________________________________
 # The remainder of this file implements examples for the search algorithms.
