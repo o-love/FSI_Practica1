@@ -129,7 +129,7 @@ def depth_first_graph_search(problem):
     return graph_search(problem, Stack())
 
 
-def best_first_graph_search(problem):
+def branch_and_bound_graph_search(problem):
     def order_criteria(item):
         return item.path_cost
 
