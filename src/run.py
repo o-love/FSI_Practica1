@@ -25,23 +25,13 @@ def run_romanian_search(start_char, end_char):
     run_all_searches_on_problem(start_char, end_char)
     print(f"Done searching from {start_char} to {end_char}\n\n")
 
+# NOTA: Las busquedas se tienen que realizar de uno en uno, sino se confunde con que nodo es el inicial y final. No he podido encontrar porque.
+#run_romanian_search('A', 'B')
+#run_romanian_search('O', 'E')
+#run_romanian_search('G', 'Z')
+#run_romanian_search('N', 'D')
+#run_romanian_search('M', 'F')
 
-def run_romanian_searches(searches):
-    for search in searches:
-        run_romanian_search(*search)
-
-
-def run_all():
-    run_romanian_searches([
-        ('A', 'B'),
-        ('O', 'E'),
-        ('G', 'Z'),
-        ('N', 'D'),
-        ('M', 'F'),
-    ])
-
-
-run_all()
 
 # Result:
 # [<Node B>, <Node P>, <Node R>, <Node S>, <Node A>] : 101 + 97 + 80 + 140 = 418
