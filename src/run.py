@@ -26,7 +26,7 @@ def run_romanian_search(start_char, end_char):
     print(f"Done searching from {start_char} to {end_char}\n\n")
 
 # NOTA: Las busquedas se tienen que realizar de uno en uno, sino se confunde con que nodo es el inicial y final. No he podido encontrar porque.
-#run_romanian_search('A', 'B')
+run_romanian_search('A', 'B')
 #run_romanian_search('O', 'E')
 #run_romanian_search('G', 'Z')
 #run_romanian_search('N', 'D')
